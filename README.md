@@ -49,8 +49,48 @@ Despite these limitations, the MOSFET current mirror remains a versatile and wid
  </pre>
 
  **Design for the current mirror ratio 1:1 and 1:2**
+
+## DC Analysis
+
+### Steps to Perform DC Analysis 
+1. Build the circuit as per the diagram shown above and set the values of the voltage sources,resistors as per the calculated values.
+2. Next go to **SPICE Directive** and type **.lib filename.lib or .lib filepath.lib** to import the Library file.
+3. Click **OK**, and place the generated command on the schematic.
+4. After importing the library file name the two mosfet as CMOSN.
+5. Set the channel length value of M<sub>1</sub> as 180nm and  we have to vary the value of the width to get a desired value of I<sub>D</sub> and V<sub>out</sub>
+6. Repeat the same steps with M<sub>2</sub> mosfet.
+7. Now go to **Edit simulation command** and select **DC op pnt**.
+8. Click **OK**, and place the generated command on the schematic.
+9. Next click on run button, you will get a pop up window which gives us information about operating point.It includes the values of V<sub>out</sub> and I<sub>D</sub>.
  
- ### Case 1
+## Transient Analysis
+
+### Steps to Perform Transient Analysis 
+1. After setting the operating point, we will give sine wave as the input for both the gate terminals of the mosfet.
+2. Next set the **Amplitude** as 50mV and **Frequency** as 1kHz for both V<sub>2</sub> and V<sub>3</sub>.
+3. You should specify the AC amplitude for each voltage source separately. You have two voltage sources, you can set their AC amplitudes as follows:
+ - First Voltage Source(V<sub>2</sub>): **AC amplitude** = 1
+ - Second Voltage Source(V<sub>3</sub>): **AC amplitude** = -1
+4. Next set **phi[deg]** for V<sub>3</sub> as 180.
+5. Now go to **Edit Simulation cmd** and select **Transient**.
+6. Give **stop time** as per your convenience, here it is 5m.
+7. Click **OK**, and place the generated command on the schematic.
+8. Verify the response and note the phase shift and signal gain.
+
+## AC Analysis
+
+### Steps to Perform AC Analysis :
+
+1. Go to Simulate > Edit Simulation Cmd.
+2. In the AC Analysis tab, choose Decade as the sweep type.
+3. Specify the number of points per decade and set the frequency range from 0.1Hz to 1THz.
+4. Click OK and place the generated command on the schematic.
+5. Ensure that the input voltage source has an AC amplitude of 1V.
+6. Click the Run button to start the analysis.
+7. Examine the gain and phase plots.
+8. Determine key characteristics such as bandwidth and gain margin.
+ 
+ ## Case 1
  <pre>
    I total = P/ Vdd
            = 1m / 1.8 
@@ -67,13 +107,18 @@ Despite these limitations, the MOSFET current mirror remains a versatile and wid
      I ref = 0.277m A = I x
   </pre>
 
+
+ **Circuit**
  
+![image](https://github.com/user-attachments/assets/b381318e-8962-4289-8b5a-6cf2f07d0c01)
 
+**DC Analysis :** 
 
+![image](https://github.com/user-attachments/assets/25638fc0-ca2a-4db3-bb0c-31896aa46f7b)
 
+![image](https://github.com/user-attachments/assets/cee42bc1-66cb-4656-b0f7-bfcb2587758a)
 
-
-
+![image](https://github.com/user-attachments/assets/72f85fef-1b8f-4e4d-9497-7c5fb3435e18)
 
 
 
