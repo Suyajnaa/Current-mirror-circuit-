@@ -10,7 +10,7 @@
 - AC Analysis
 - Extract required parameters
 
-## Components Required:
+### Components Required:
 - MOSFET(NMOS,PMOS)
 - Resistors
 - Current source
@@ -18,23 +18,64 @@
 - Connecting wires
 
 ## Theory
-### Function:
-The primary purpose of a current mirror is to replicate a current flowing through one active device (the "input" transistor) to another active device (the "output" transistor), maintaining a constant current regardless of load conditions.
-In this specific configuration, the two PMOS transistors are used to create a current mirror, with the NMOS transistor acting as a current source or sink. 
-### Operation:
-- The input current is set by an external source, which flows through the input PMOS transistor. 
-- The voltage drop across the input PMOS transistor is mirrored by the output PMOS transistor. 
-- This mirrored voltage drop, in turn, controls the current flow through the output PMOS transistor, creating a mirrored current.
+
+A MOSFET current mirror is a fundamental analog circuit used to copy a reference current from one branch of a circuit into another, maintaining a stable and predictable output current. This circuit plays a critical role in analog integrated circuits such as operational amplifiers, differential amplifiers, and active loads. The core idea behind a current mirror is that if two MOSFETs are matched and operated under the same conditions, they will conduct equal currents when their gate-source voltages are equal.
+
+The basic MOSFET current mirror consists of two identical n-channel MOSFETs. The first MOSFET, often called the reference transistor, has its gate and drain connected together, forming a diode-connected configuration. This ensures the transistor operates in the saturation region, where the drain current is primarily controlled by the gate-source voltage. A reference current is forced through this transistor, creating a fixed gate voltage that is then applied to the gate of the second transistor.
+
+The second MOSFET, known as the output transistor, has its gate and source connected to those of the reference transistor. Assuming it is also operating in saturation and the MOSFETs are well matched, the output transistor will mirror the current flowing in the reference transistor. If both transistors have the same width-to-length ratio (W/L), then the output current will ideally be equal to the reference current. If different W/L ratios are used, the output current can be scaled proportionally.
+
+While the MOSFET current mirror is simple and effective, it has limitations. The accuracy of current mirroring depends on how closely the transistors are matched in terms of threshold voltage, mobility, and physical dimensions. In addition, channel length modulation can introduce errors, causing the output current to vary with changes in the output voltage. Furthermore, there is a minimum output voltage, known as the compliance voltage, below which the output transistor can no longer remain in saturation and accurate mirroring fails.
+
+Despite these limitations, the MOSFET current mirror remains a versatile and widely used circuit element. Its ability to generate precise and scalable bias currents makes it invaluable in analog circuit design. More advanced versions, such as Wilson and cascode current mirrors, improve performance by increasing output resistance and reducing the effect of voltage variations at the output node.
+
+![image](https://github.com/user-attachments/assets/69376a23-4454-4970-aeb9-fdd021a31424)
 
  
 ## Part A
 
-**Design question** 
+**1> Design question** 
 - Power Supply (V<sub>DD</sub>) = 1.8V.
 - Power Consumption (P) <= 1mW. 
 - Gain (A<sub>v</sub>) > -10V/V.
 
+### Circuit
 
+![image](https://github.com/user-attachments/assets/b8be8323-46fd-4a70-8524-3a151b055e79)
+
+ <pre>
+   I total = P / Vdd
+   I total = I ref + I x
+ </pre>
+
+ **Design for the current mirror ratio 1:1 and 1:2**
+ 
+ <pre>
+   I total = P/ Vdd
+           = 1m / 1.8 
+           = 0.555m A
+  </pre>
+  
+ if ratio is 1:1
+   
+ <pre>
+   I ref = I x
+  
+   I total = I ref + I x
+    0.555m = 2 * I ref
+     I ref = 0.2777m A = I ref 
+  </pre>
+
+ if ratio is 1:2
+   
+ <pre>
+   I ref = 2 * I x
+  
+   I total = I ref + I x 
+    0.555m = 3 * I ref
+     I ref = 0.185m A
+     I x   = 0.37m A
+  </pre>
 
 
 
