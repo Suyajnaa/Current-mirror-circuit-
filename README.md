@@ -50,6 +50,7 @@ Despite these limitations, the MOSFET current mirror remains a versatile and wid
 
  **Design for the current mirror ratio 1:1 and 1:2**
  
+ ### Case 1
  <pre>
    I total = P/ Vdd
            = 1m / 1.8 
