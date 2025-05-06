@@ -112,7 +112,7 @@ Despite these limitations, the MOSFET current mirror remains a versatile and wid
  
 ![image](https://github.com/user-attachments/assets/b381318e-8962-4289-8b5a-6cf2f07d0c01)
 
-**DC Analysis :** 
+**DC Analysis** 
 
 ![image](https://github.com/user-attachments/assets/25638fc0-ca2a-4db3-bb0c-31896aa46f7b)
 
@@ -121,11 +121,35 @@ Despite these limitations, the MOSFET current mirror remains a versatile and wid
 ![image](https://github.com/user-attachments/assets/72f85fef-1b8f-4e4d-9497-7c5fb3435e18)
 
 
+**Transient Analysis**
+
+![image](https://github.com/user-attachments/assets/9d583e4f-43b6-4a40-800d-08b5c503d41e)
 
 
+INPUT:
 
+![Image](https://github.com/user-attachments/assets/c62f9169-72ab-4ef2-843d-e601be447097)
 
+OUTPUT:
 
+![Image](https://github.com/user-attachments/assets/6041cebc-b8d6-4d4c-9611-35583355ceef)
+
+**AC Analysis**
+
+![Image](https://github.com/user-attachments/assets/34f2279c-0fd6-4b1c-90f6-f3d95a0443d6)
+
+The Expected gain in db of the circuit is 20db.But the obtained gain from the AC analysis(frequency response) is 22.117db.
+
+|Parameter      |Theory value  | Practical value |
+|---------------|--------------|-----------------|
+|Av(in dB)      | 20dB         | 22.117dB         |
+|Av(in V/V)     | 10           | 10.12            |
+
+**3db Bandwidth:**
+
+The obatined 3db B.W=2.253GHz.
+
+![Image](https://github.com/user-attachments/assets/4c9f54bb-8fcd-49f3-8c97-8d90e143613e)
 
 
 
