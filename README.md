@@ -64,8 +64,46 @@ Despite these limitations, the MOSFET current mirror remains a versatile and wid
   
    I total = I ref + I x
     0.555m = 2 * I ref
-     I ref = 0.2777m A = I ref 
+     I ref = 0.277m A = I x
   </pre>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  if ratio is 1:2
    
