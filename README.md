@@ -114,12 +114,11 @@ Despite these limitations, the MOSFET current mirror remains a versatile and wid
 
 **DC Analysis** 
 
-![image](https://github.com/user-attachments/assets/f0df36db-de47-4189-bcdb-c45264c09011)
-
 ![image](https://github.com/user-attachments/assets/e1784b0c-bbcd-4ddc-a3e8-9074cde45961)
 
 ![image](https://github.com/user-attachments/assets/56646cfb-7297-4f02-b5bd-887b1c486d93)
 
+![image](https://github.com/user-attachments/assets/0db5ba11-42f3-430a-a52c-268e3ff80c6a)
 
 
 **Transient Analysis**
@@ -179,18 +178,7 @@ The obatined 3db B.W=2.253GHz.
 
 
 
-## DC Analysis:(for mirror ratio 1:2)
-
-As we know I<sub>t</sub>=I<sub>ref</sub>+I<sub>x</sub><br>
-Therefore, for 1:2 ratio 2*I<sub>ref</sub>=I<sub>x</sub><br>
-So,I<sub>ref</sub>=I<sub>t</sub>/3<br>
-I<sub>t</sub>=P/V<sub>DD</sub<br>
-I<sub>t</sub>=1mW/1.8V<br>
-I<sub>t</sub>=0.555mA.<br>
-Therefore,I<sub>ref</sub>=0.185mA.<br>
-
-To obtain the current value according to the given ratio, the provided values of W/L for M1 is 6um/180nm , M2 is 6um/180nm, and M3 is 3um/180nm.<br>
-Vin is selected in such a way that it should be in saturation region so the given Vin is 0.763V.<br>
+**DC Analysis**
 
 ![Image](https://github.com/user-attachments/assets/792237e5-ca5c-4a18-938d-8cf86e65bf7f)
 
@@ -198,19 +186,7 @@ OUTPUT:
 
 ![Image](https://github.com/user-attachments/assets/d6b1ba32-0f98-43f5-b57a-8624733312e1)
 
-## Transient Analysis
-
-### Steps to Perform Transient Analysis in LTspice XVII
-1. After setting the operating point, we will give sine wave as the input for both the gate terminals of the mosfet.
-2. Next set the **Amplitude** as 50mV and **Frequency** as 1kHz for both V<sub>2</sub> and V<sub>3</sub>.
-3. You should specify the AC amplitude for each voltage source separately. You have two voltage sources, you can set their AC amplitudes as follows:
- - First Voltage Source(V<sub>2</sub>): **AC amplitude** = 1
- - Second Voltage Source(V<sub>3</sub>): **AC amplitude** = -1
-4. Next set **phi[deg]** for V<sub>3</sub> as 180.
-5. Now go to **Edit Simulation cmd** and select **Transient**.
-6. Give **stop time** as per your convenience, here it is 5m.
-7. Click **OK**, and place the generated command on the schematic.
-8. Verify the response and note the phase shift and signal gain.
+**Transient Analysis**
 
 ![Image](https://github.com/user-attachments/assets/73700227-f1c9-4959-9f7b-451a2113ce76)
 
@@ -225,19 +201,7 @@ OUTPUT:
 The Expected gain of the circuit is -10V/V.But the obtained gain from the transient analysis is -11.36V/V.
 
 
-## AC Analysis
-
-### Steps to Perform AC Analysis in LTspice XVII:
-
-1. Go to Simulate > Edit Simulation Cmd.
-2. In the AC Analysis tab, choose Decade as the sweep type.
-3. Specify the number of points per decade and set the frequency range from 0.1Hz to 1THz.
-4. Click OK and place the generated command on the schematic.
-5. Ensure that the input voltage source has an AC amplitude of 1V.
-6. Click the Run button to start the analysis.
-7. Examine the gain and phase plots.
-8. Determine key characteristics such as bandwidth and gain margin.
-
+**AC Analysis**
 
 ![Image](https://github.com/user-attachments/assets/9cd5cb62-1b5b-4c7b-858b-704d2a5a957e)
 
